@@ -5,27 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alfiya Heba - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          outfit: ['Outfit', 'sans-serif'],
+          ovo: ['Ovo', 'serif']
+        },
+        animation:{
+          spin_slow:'spin 10s linear infinite'
+        },
+        colors:{
+          darkTheme:'#11001F',
+          darkHover:'#2a004a'
+        }
+      }
+    },
+    darkMode:'class'
+  }
+  </script>
   <script src="https://kit.fontawesome.com/f1217c6dff.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Ovo&display=swap" rel="stylesheet">
-
-
-
-  </head>
-<body class="overflow-x-hidden font-Outfit leading-8">
+</head>
+<body class="overflow-x-hidden font-outfit leading-8 dark:bg-darkTheme dark:text-white">
 
   <!-- Background Image -->
-  <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
+  <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
     <img src="./images/header-bg-color.png" alt="" class="w-full">
   </div>
 
   <!-- Navbar -->
-  <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] pt-1.5 pb-2 flex items-center justify-between z-50 bg-white">
-    <img src="./images/logo1.png" alt="logo" class="w-28 cursor-pointer mr-14">
+  <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] pt-1.5 pb-2 flex items-center justify-between z-50 bg-white ">
+    <img src="./images/logo1.png" alt="logo" class="w-28 cursor-pointer mr-14 dark:hidden">
+    <!-- <img src="./images/logo1.png" alt="logo" class="w-28 cursor-pointer mr-14 hidden dark:block"> -->
 
     <!-- Desktop Links -->
-    <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo">
+    <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-ovo dak:border dark:border-white/50 dark:bg-transparent">
       <li><a href="#top">Home</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -35,19 +54,26 @@
 
     <!-- Right Section -->
     <div class="flex items-center gap-4">
-      <button><img src="./images/moon_icon.png" alt="" class="w-6"></button>
-      <a href="#contact" class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4">
-        Contact <img src="./images/arrow-icon.png" alt="" class="w-3">
+      <button onclick="toggleTheme()">
+        <img src="./images/moon_icon.png" alt="" class="w-6 dark:hidden">
+        <img src="./images/sun_icon.png" alt="" class="w-6 hidden dark:block">
+      </button>
+      <a href="#contact" class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-ovo dark:border-white/50">
+        Contact 
+        <img src="./images/arrow-icon.png" alt="" class="w-3 dark:hidden">
+        <img src="./images/arrow-icon-dark.png" alt="" class="w-3 hidden dark:block">
       </a>
-      <button class="block md:hidden ml-3 font-Ovo" onclick="openMenu()">
-        <img src="./images/menu-black.png" alt="" class="w-6">
+      <button class="block md:hidden ml-3 " onclick="openMenu()">
+        <img src="./images/menu-black.png" alt="" class="w-6 dark:hidden">
+        <img src="./images/menu-white.png" alt="" class="w-6 hidden dark:block">
       </button>
     </div>
 
     <!-- Mobile Menu -->
-    <ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-4 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 transform font-Ovo">
+    <ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-4 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 transform font-ovo dark:bg-[#2a004a] dark:text-white">
       <div class="absolute right-6 top-6" onclick="closeMenu()">
-        <img src="./images/close-black.png" alt="" class="w-5 cursor-pointer">
+        <img src="./images/close-black.png" alt="" class="w-5 cursor-pointer dark:hidden ">
+        <img src="./images/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block ">
       </div>
       <li><a href="#top" onclick="closeMenu()">Home</a></li>
       <li><a href="#about" onclick="closeMenu()">About Me</a></li>
@@ -62,21 +88,18 @@
          alt="Alfiya Heba"
          class="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover shadow-md border-4 border-white mx-auto"/>
   
-    <h2 class="mt-6 text-lg sm:text-xl text-gray-700 font-medium ">
+    <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3  mt-5 font-ovo ">
       Hi! I'm Alfiya Heba <span class="inline-block animate-bounce">👋</span>
-    </h2>
+    </h3>
   
     
-    <h1 class="mt-2 text-lg sm:text-xl md:text-2xl font-bold text-gray-800">
+    <h1 class="text-3xl sm:text-6xl lg:text-[66px] mb-3 font-ovo">
       Frontend web developer based in India.
     </h1>
-    <p class="mt-4 text-sm sm:text-base text-gray-600 max-w-xl px-4">
+    <p class="max-w-2xl mx-auto  font-ovo">
         I'm a frontend developer from India with a passion for building clean and responsive web experiences.
     </p>
-    <p class="mt-10 italic text-gray-500 text-center">“Turning ideas into interactive experiences.”</p>
-
-    
-   
+    <p class="flex items-end gap-2 text-xl md:text-2xl mb-3  mt-5 font-ovo">“Turning ideas into interactive experiences.”</p>
     <div class="flex gap-4 justify-center mt-6 flex-wrap">
       <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-t from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2">
         Contact Me <img src="./images/right-arrow-white.png" alt="" class="w-4">
@@ -94,39 +117,39 @@
 
   <!-- about me -->
   <section id="about" class="w-full px-[12%] py-16">
-    <h2 class="text-center text-5xl">About Me</h2>
+    <h2 class="text-center text-5xl font-ovo">About Me</h2>
     <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
       <div class="max-w-max mx-auto relative">
        
       
         <ul>
-          <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] min-h-[220px]">
+          <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] min-h-[220px] dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
             <img src="./images/edu-icon.png" alt="Education Icon" class="w-7 mt-3">
-            <h3 class="my-4 font-semibold text-gray-700">Education</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
+            <h3 class="my-4 font-semibold text-gray-700 font-ovo ">Education</h3>
+            <p class="text-gray-600 text-sm leading-relaxed font-ovo">
               🎓 <strong>BE – Computer Science and Engineering</strong><br>
               🏫 Mysuru Royal Institute of Technology, Mandya<br>
               📅 2021 – 2025<br>
               ⭐ <strong>CGPA:</strong> 8.37
             </p>
-            <p class="text-gray-600 text-sm leading-relaxed mt-4">
+            <p class="text-gray-600 text-sm leading-relaxed mt-4 font-ovo">
               <strong>Pre-University (PU) – PCMC's</strong><br>
               St Annes PU College, Mysuru<br>
             </p>
           </li>
         </ul>
         <div class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center ">
-          <img src="./images/circular-text.png" alt="" class="w-full">
+          <img src="./images/circular-text.png" alt="" class="w-full animate-spin_slow">
           <img src="./images/dev-icon.png" alt="" class="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 
         </div>
       </div>
       <div class="flex-1">
-        <p class="mb-10 max-w-2xl ">
+        <p class="mb-10 max-w-2xl font-ovo ">
           I'm Alfiya Heba, a dedicated Computer Science graduate with a strong enthusiasm for frontend development. I have a keen eye for designing clean, responsive, and user-friendly interfaces using technologies like HTML, CSS, and JavaScript.
 
-       <br><br><br> Currently, I'm diving deeper into React.js, expanding my skill set to build dynamic and interactive web applications that offer smooth user experiences. I believe in continuous learning and am passionate about creating projects that are both meaningful and practical.
-        <br><br><br>My current focus is on refining my frontend skills, building real-world projects, and preparing myself for exciting opportunities in the tech industry where I can grow, contribute, and make an impact.
+       <br><br>Currently, I'm diving deeper into React.js, expanding my skill set to build dynamic and interactive web applications that offer smooth user experiences. I believe in continuous learning and am passionate about creating projects that are both meaningful and practical.
+        <br><br>My current focus is on refining my frontend skills, building real-world projects, and preparing myself for exciting opportunities in the tech industry where I can grow, contribute, and make an impact.
         </p>
         <a href="#work" class="inline-block bg-gradient-to-t from-[#b820e6] to-[#da7d20] text-white px-6 py-3 rounded-full text-sm font-medium shadow-md hover:bg-[#7b0090] transition duration-300">
           Explore More
@@ -137,14 +160,14 @@
 
   <!-- skills section -->
   <section id="skills" class=" w-full px-[12%] py-16 max-2-7xl mx-auto">
-    <h2 class="text-center text-5xl mb-5 ">Skills</h2>
-    <p class="text-center mb-10 text-lg">
+    <h2 class="text-center text-5xl mb-5 font-ovo ">Skills</h2>
+    <p class="text-center mb-10 text-lg font-ovo">
       Here are the technologies and tools I'm comfortable with and currently exploring:
     </p>
   
     <!-- Languages -->
     <div class="mb-10">
-      <h3 class="text-xl font-semibold text-gray-700 mb-4">Languages</h3>
+      <h3 class="text-xl font-semibold  mb-4 font-ovo">Languages</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center gap-2 bg-white p-4 rounded-xl shadow-md hover:-translate-y-1 transition duration-300">
           <img src="./images/html1.png" alt="HTML" class="w-12 h-12">
@@ -168,7 +191,7 @@
   
     <!-- Frameworks & Libraries -->
     <div class="mb-10">
-      <h3 class="text-xl font-semibold text-gray-700 mb-4">Frameworks & Libraries</h3>
+      <h3 class="text-xl font-semibold  mb-4 font-ovo">Frameworks & Libraries</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center gap-2 bg-white p-4 rounded-xl shadow-md hover:-translate-y-1 transition duration-300">
           <img src="./images/react.png" alt="React" class="w-12 h-12">
@@ -183,7 +206,7 @@
   
     <!-- Tools & Technologies -->
     <div>
-      <h3 class="text-xl font-semibold text-gray-700 mb-4">Tools & Technologies</h3>
+      <h3 class="text-xl font-semibold  mb-4 font-ovo">Tools & Technologies</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center gap-2 bg-white p-4 rounded-xl shadow-md hover:-translate-y-1 transition duration-300">
           <img src="./images/git.png" alt="Git" class="w-12 h-12">
@@ -207,9 +230,9 @@
 
   <!-- my Work -->
   <section id="work" class="w-full px-[12%] py-10 scroll-mt-20">
-    <h4 class="text-center mb-2 text-lg">My Portfolio</h4>
-    <h2 class="text-center text-5xl">My Latest Work</h2>
-    <p class="text-center max-w-2xl mx-auto mt-5 mb-12">Welcome to my Web Development Portfolio! Explore a Collection of Projects showcasing my Expertise in front-end Development.</p>
+    <h4 class="text-center mb-2 text-lg font-ovo">My Portfolio</h4>
+    <h2 class="text-center text-5xl font-ovo">My Latest Work</h2>
+    <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">Welcome to my Web Development Portfolio! Explore a Collection of Projects showcasing my Expertise in front-end Development.</p>
     <!-- <div class="grid grid-cols-4 my-10 gap-5"> -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 my-10 gap-5">
 <!-- // added projects -->
@@ -223,7 +246,7 @@
           </div>
       
           <a href="https://mehendi-website-reactjs.vercel.app/" target="_blank" rel="noopener noreferrer">
-            <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+            <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-gradient-to-t from-[#b820e6] to-[#da7d20] transition">
               <img src="./images/send-icon.png" alt="" class="w-5">
             </div>
           </a>
@@ -238,7 +261,7 @@
             <p class="text-small text-gray-700">Built with React, Vite & Tailwind</p>
           </div>
           <a href="https://houseify-dtkv.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+          <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-gradient-to-t from-[#b820e6] to-[#da7d20] transition">
             <img src="./images/send-icon.png" alt="" class="w-5">
           </div>
           </a>
@@ -252,7 +275,7 @@
             <p class="text-small text-gray-700">HTML & CSS Practice Collection</p>
           </div>
           <a href="https://html-css-practice-projects-os7s.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+          <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-gradient-to-t from-[#b820e6] to-[#da7d20] transition">
             <img src="./images/send-icon.png" alt="" class="w-5">
           </div>
           </a>
@@ -266,7 +289,7 @@
             <p class="text-small text-gray-700">JavaScript | Task Manager</p>
           </div>
           <a href="https://to-do-app-pink-two.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+          <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-gradient-to-t from-[#b820e6] to-[#da7d20] transition">
             <img src="./images/send-icon.png" alt="" class="w-5">
           </div>
           </a>
@@ -277,9 +300,9 @@
 
   <!-- contact -->
   <section id="contact" class=" w-full px-[12%] py-10 scroll-mt-20 bg-[('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center">
-    <h4 class="text-center mb-2 text-lg">Connect with Me</h4>
-    <h2 class="text-center text-5xl">Get in Touch</h2>
-    <p class="text-center max-w-2xl mx-auto mt-5 mb-12">
+    <h4 class="text-center mb-2 text-lg font-ovo">Connect with Me</h4>
+    <h2 class="text-center text-5xl font-ovo">Get in Touch</h2>
+    <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">
       I'd love to hear from you.
     </p>
     <form action="" class="max-w-2xl mx-auto">
@@ -305,7 +328,7 @@
           </a>
           
           <!-- Email -->
-          <a href="mailto:alfiyaeba1016@gmaul.com" class="hover:text-blue-600">
+          <a href="mailto:alfiyaheba1016@gmaul.com" class="hover:text-blue-600">
             <i class="fas fa-envelope text-xl"></i>
           </a>
     
@@ -320,7 +343,7 @@
           </a>
         </div>
     
-        <p class="text-sm text-center">Designed by Alfiya Heba © 2025</p>
+        <p class="text-sm text-center font-ovo">Designed by Alfiya Heba © 2025</p>
     
       </div>
     </footer>
