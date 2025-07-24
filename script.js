@@ -2,7 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const sideMenu = document.getElementById("sideMenu");
   const navBar = document.querySelector("nav");
   const navLinks = document.querySelector("nav ul");
+  const form = document.getElementById("contact-form");
 
+  
+  
+  
   window.openMenu = function () {
     sideMenu.style.right = "0";
   };
@@ -38,3 +42,31 @@ function toggleTheme(){
   }
 }
 
+// contact section web3forms
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  //  Added  web3forms line here
+  formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+
+  
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      // Show success popup
+      document.getElementById("success-popup").classList.remove("hidden");
+      form.reset();
+    } else {
+      alert("Something went wrong!");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+});

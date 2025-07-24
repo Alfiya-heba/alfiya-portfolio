@@ -41,7 +41,7 @@
   <!-- Navbar -->
   <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] pt-1.5 pb-2 flex items-center justify-between z-50 bg-white ">
     <img src="./images/logo1.png" alt="logo" class="w-28 cursor-pointer mr-14 dark:hidden">
-    <!-- <img src="./images/logo1.png" alt="logo" class="w-28 cursor-pointer mr-14 hidden dark:block"> -->
+    <img src="./images/dark-logo.png" alt="logo" class="w-28 cursor-pointer mr-14 hidden dark:block">
 
     <!-- Desktop Links -->
     <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-ovo dak:border dark:border-white/50 dark:bg-transparent">
@@ -125,14 +125,14 @@
         <ul>
           <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_0_#000] min-h-[220px] dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
             <img src="./images/edu-icon.png" alt="Education Icon" class="w-7 mt-3">
-            <h3 class="my-4 font-semibold text-gray-700 font-ovo ">Education</h3>
-            <p class="text-gray-600 text-sm leading-relaxed font-ovo">
+            <h3 class="my-4 font-semibold text-gray-700 font-ovo dark:text-white ">Education</h3>
+            <p class="text-gray-600 text-sm leading-relaxed font-ovo dark:text-white">
               🎓 <strong>BE – Computer Science and Engineering</strong><br>
               🏫 Mysuru Royal Institute of Technology, Mandya<br>
               📅 2021 – 2025<br>
               ⭐ <strong>CGPA:</strong> 8.37
             </p>
-            <p class="text-gray-600 text-sm leading-relaxed mt-4 font-ovo">
+            <p class="text-gray-600 text-sm leading-relaxed mt-4 font-ovo dark:text-white">
               <strong>Pre-University (PU) – PCMC's</strong><br>
               St Annes PU College, Mysuru<br>
             </p>
@@ -300,22 +300,52 @@
 
   <!-- contact -->
   <section id="contact" class=" w-full px-[12%] py-10 scroll-mt-20 bg-[('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center">
-    <h4 class="text-center mb-2 text-lg font-ovo">Connect with Me</h4>
+    <h4 class="text-center mb-2 text-lg font-ovo ">Connect with Me</h4>
     <h2 class="text-center text-5xl font-ovo">Get in Touch</h2>
     <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">
       I'd love to hear from you.
     </p>
-    <form action="" class="max-w-2xl mx-auto">
+    <form action="https://api.web3forms.com/submit" method="POST" class="max-w-2xl mx-auto" id="contactForm">
+      <input type="hidden" name="access_key" value="1a627f59-d0af-494a-a5af-6e1f5b70aba3">
+    
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-5">
-        <input type="text" placeholder="Enter Your Name" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white">
-        <input type="email" placeholder="Enter Your Email" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white">
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter Your Name"
+          class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+          required
+        >
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Your Email"
+          class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+          required
+        >
       </div>
-      <textarea rows="6" placeholder="Enter Your Message" class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 "></textarea>
-      <button class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500">Submit Now
+    
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="Enter Your Message"
+        class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6"
+        required
+      ></textarea>
+    
+      <button class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500">
+        Submit Now
         <img src="./images/right-arrow-white.png" alt="" class="w-4">
       </button>
     </form>
+    <div id="popup" class="hidden bg-green-100 text-green-800 px-4 py-3 border border-green-200 rounded-lg mt-4 text-center">
+      ✅ Your message has been submitted!
+    </div>
+    
+    
     </section>
+  
+  
 
     <!-- footer -->
     <footer class="bg-gray-100 text-gray-700 py-6 mt-12">
@@ -347,22 +377,13 @@
     
       </div>
     </footer>
-    
-    
-    
   
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
   <!-- Link JS last -->
+  <script src="config.js"></script>
   <script src="./script.js"></script>
+  
+
+  
+  
 </body>
 </html>
